@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Post extends Model
 {
@@ -22,8 +22,8 @@ class Post extends Model
         return $this->belongsToMany(User::class)->using(Mention::class);
     }
 
-    public function content():HasOne
+    public function content(): MorphOne
     {
-        return $this->hasOne(Content::class);
+        return $this->morphOne(Content::class, 'contentable');
     }
 }

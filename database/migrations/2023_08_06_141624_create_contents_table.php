@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->morphs('contentable');
             $table->string('message');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
