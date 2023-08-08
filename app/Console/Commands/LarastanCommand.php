@@ -45,7 +45,7 @@ class LarastanCommand extends Command implements Isolatable
      */
     public function handle()
     {
-        $command = ['vendor/bin/phpstan', 'analyze', '--', './'];
+        $command = ['vendor/bin/phpstan', 'analyze', '--memory-limit=2G', './'];
 
         $process = new Process($command);
         try {
