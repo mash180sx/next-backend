@@ -1,0 +1,23 @@
+includes:
+  - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+  # 解析レベル
+  # https://phpstan.org/user-guide/rule-levels
+  level: 0
+
+  # 解析対象に含めるパス
+  paths:
+    - app
+    - bootstrap
+    - config
+    - database
+    - resources
+    - routes
+    - tests
+
+  # 解析対象に含めないパス
+  excludePaths:
+    - storage
+    - vendor
+    - routes/console.php
