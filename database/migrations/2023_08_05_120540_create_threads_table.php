@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('work_space_id')->constrained()->cascadeOnDelete();
             $table->tinyInteger('type')->default(0);    // 0:Thread, 1:DirectMail
+            $table->string('name');
             $table->timestamps();
         });
     }
