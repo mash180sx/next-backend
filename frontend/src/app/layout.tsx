@@ -1,4 +1,4 @@
-import './globals.css'
+// import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -16,7 +16,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="block w-full h-full">
+        <div className="block bg-glay-300 w-full h-full">
+          <div className="bg-pink-300 flex h-16 fixed w-full"></div>
+          <div className="flex">
+            <div></div>
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
