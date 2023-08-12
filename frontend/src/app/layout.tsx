@@ -1,4 +1,5 @@
 // import './globals.css'
+import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -15,12 +16,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="block w-full h-full">
-        <div className="block bg-glay-300 w-full h-full">
-          <div className="bg-pink-300 flex h-16 fixed w-full"></div>
-          <div className="flex">
-            <div></div>
+    <html lang="ja" className={inter.className}>
+      <body className="block w-full h-full fixed">
+        <header className="w-full h-8 bg-pink-300 overflow-x-hidden overflow-y-scroll fixed">
+          Header
+        </header>
+        <div className="mt-8 bg-yellow-300 w-full min-h-screen flex fixed">
+          <div className="w-80 min-h-screen bg-purple-700 block overflow-y-hidden">
+            Left
+          </div>
+          <div className="w-full min-h-screen bg-gray-400 overflow-x-hidden overflow-y-scroll">
             {children}
           </div>
         </div>
