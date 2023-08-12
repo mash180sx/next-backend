@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->morphs('contentable');
+            $table->foreignId('user_id'); // from
             $table->ulid('key');
+            $table->tinyInteger('state')->default(0); // 0:Draft, 1:Content
             $table->string('message');
             $table->timestamps();
             $table->softDeletes();

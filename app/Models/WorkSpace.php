@@ -14,8 +14,9 @@ class WorkSpace extends Model
     public function members(): BelongsToMany
     {
         return $this->belongsToMany(User::class)
-            ->using(Member::class
-            )->withTimestamps();
+            ->using(Member::class)
+            ->withPivot('role')
+            ->withTimestamps();
     }
 
     public function threads(): HasMany

@@ -48,25 +48,27 @@ class User extends Authenticatable
 
     public function ownWorkspaces(): BelongsToMany
     {
-        return $this->belongsToMany(WorkSpace::class)->using(Member::class);
+        return $this->belongsToMany(WorkSpace::class)
+            ->using(Member::class)
+            ->withPivot('role')
+            ->withTimestamps();
     }
 
     public function threads(): BelongsToMany
     {
         return $this->belongsToMany(Thread::class)
             ->using(Participant::class)
-            ->withPivot('role')
             ->withTimestamps();
     }
 
-    public function post(): HasOne
+    public function from(): HasOne
     {
-        return $this->hasOne(Post::class);
+        return $this->hasOne(Content::class);
     }
 
-    public function mention():BelongsToMany
+    public function mention(): BelongsToMany
     {
-        return $this->belongsToMany(Post::class)
+        return $this->belongsToMany(Content::class)
             ->using(Mention::class)
             ->withPivot('unread')
             ->withTimestamps();
